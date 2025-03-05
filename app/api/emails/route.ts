@@ -13,7 +13,7 @@ export async function GET() {
         const data = await response.json();
         return NextResponse.json(data);
     } catch (error) {
-        return NextResponse.json({ error: 'Failed to fetch emails bro' }, { status: 500 });
+        return NextResponse.json({ error: error }, { status: 500 });
     }
 }
 
@@ -26,6 +26,6 @@ export async function DELETE(request: Request) {
         if (!response.ok) throw new Error('Failed to delete email');
         return NextResponse.json({ success: true });
     } catch (error) {
-        return NextResponse.json({ error: 'Failed to delete email' }, { status: 500 });
+        return NextResponse.json({ error: error }, { status: 500 });
     }
 }
